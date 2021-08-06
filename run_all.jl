@@ -123,7 +123,7 @@ outdf.model1_logpdf = zeros(size(outdf, 1))
 outdf.model2_logpdf = zeros(size(outdf, 1))
 outdf.log2bayes = zeros(size(outdf, 1))
 
-Threads.@threads for (i, file) in enumerate(outdf.file)
+Threads.@threads for (i, file) in collect(enumerate(outdf.file))
     df = CSV.read(joinpath(indir, file), DataFrame)
     !in("Date", names(df)) && continue
 
