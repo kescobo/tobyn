@@ -150,8 +150,8 @@ Threads.@threads for (i, file) in collect(enumerate(outdf.file))
     p1 = logpdf(pr1, df.bug)
     p2 = logpdf(pr2, df.bug)
 
-    l2bayes = log2(BigFloat(2)^logpdf(pr1, df.bug) / 
-                   BigFloat(2)^logpdf(pr2, df.bug) 
+    l2bayes = log2(BigFloat(2)^p1 / 
+                   BigFloat(2)^p2
     )
 
     outdf[i, :model1_logpdf] = p1
