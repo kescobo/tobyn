@@ -74,10 +74,10 @@ if isempty(inpairs)
     pairsprinted = "all"
     @debug "Input pairs: all" 
 elseif isfile(first(inpairs))
-    pairsprinted = "from file: $(normpath(expanduser(first(pairs))))"
-    @debug "Input pairs: $(readlines(first(pairs)))" 
+    pairsprinted = "from file: $(normpath(expanduser(first(inpairs))))"
+    @debug "Input pairs: $(readlines(first(inpairs)))" 
 else
-    firstpairs = length(pairs) > 5 ? first(inpairs, 5) : inpairs
+    firstpairs = length(inpairs) > 5 ? first(inpairs, 5) : inpairs
     pairsprinted = string(join(firstpairs, ", "), "...")
     @debug "Input pairs: $inpairs" 
 end
@@ -124,6 +124,7 @@ outdf.model2_logpdf = zeros(size(outdf, 1))
 outdf.log2bayes = zeros(size(outdf, 1))
 
 Threads.@threads for (i, file) in collect(enumerate(outdf.file))
+    @info "Running $file"
     df = CSV.read(joinpath(indir, file), DataFrame)
     !in("Date", names(df)) && continue
 
