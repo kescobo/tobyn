@@ -1,4 +1,7 @@
 name = "Run All"
 
 [deps]
+ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
 GaPLAC = "5fbfd2c5-e7c0-480c-b0aa-53d89672c7de"
+LoggingExtras = "e6f89c97-d47a-5376-807f-9c37f3926c36"
+TerminalLoggers = "5d786b92-1e48-4d6f-9151-6b4477ca9bed"
