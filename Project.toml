@@ -1,0 +1,4 @@
+name = "Run All"
+
+[deps]
+GaPLAC = "5fbfd2c5-e7c0-480c-b0aa-53d89672c7de"
